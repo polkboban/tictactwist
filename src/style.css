@@ -64,14 +64,18 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-color: var(--bg-color);
+  background-image: url('/tic-tac-toe-seamless-pattern-yellow-background-vector-illustration_723710-1062.avif');
+  background-repeat: repeat;
+  background-size: 400px;
+  background-position: center;
+  will-change: background-image;
   color: var(--text-color);
   transition: background-color 0.3s ease, color 0.3s ease;
   position: relative;
   overflow-x: hidden;
-  background-image: 
-    radial-gradient(circle at 20px 20px, rgba(0,0,0,0.05) 2px, transparent 0),
-    radial-gradient(circle at 40px 40px, rgba(0,0,0,0.05) 2px, transparent 0);
-  background-size: 40px 40px;
+  backdrop-filter: blur(60px);
+  -webkit-backdrop-filter: blur(60px);
+  background-attachment: fixed;
 }
 
 #app {
@@ -142,4 +146,3 @@ button {
     margin-bottom: 20px;
   }
 }
-</style>
