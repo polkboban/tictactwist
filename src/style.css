@@ -1,0 +1,145 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* Light theme colors */
+  --bg-color: #f8fafc;
+  --text-color: #334155;
+  --cell-bg-color: #ffffff;
+  --status-bg-color: #f1f5f9;
+  --score-bg-color: #ffffff;
+  --winning-bg-color: #ecfdf5;
+  
+  --x-color: #3B82F6;
+  --o-color: #EC4899;
+  --draw-color: #64748b;
+  
+  --x-win-bg-color: #dbeafe;
+  --x-win-text-color: #1e40af;
+  --o-win-bg-color: #fce7f3;
+  --o-win-text-color: #9d174d;
+  --draw-bg-color: #f1f5f9;
+  --draw-text-color: #475569;
+  
+  --btn-bg-color: #f1f5f9;
+  --btn-text-color: #334155;
+  --restart-btn-color: #dbeafe;
+  --reset-btn-color: #fee2e2;
+  --mode-btn-color: #fef3c7;
+  --theme-btn-color: #f1f5f9;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Dark theme */
+.dark-theme {
+  --bg-color: #1e293b;
+  --text-color: #f1f5f9;
+  --cell-bg-color: #334155;
+  --status-bg-color: #334155;
+  --score-bg-color: #334155;
+  --winning-bg-color: #064e3b;
+  
+  --x-win-bg-color: #1e3a8a;
+  --x-win-text-color: #dbeafe;
+  --o-win-bg-color: #831843;
+  --o-win-text-color: #fce7f3;
+  --draw-bg-color: #334155;
+  --draw-text-color: #e2e8f0;
+  
+  --btn-bg-color: #475569;
+  --btn-text-color: #f1f5f9;
+  --restart-btn-color: #1e3a8a;
+  --reset-btn-color: #991b1b;
+  --mode-btn-color: #854d0e;
+  --theme-btn-color: #475569;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  position: relative;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 20px 20px, rgba(0,0,0,0.05) 2px, transparent 0),
+    radial-gradient(circle at 40px 40px, rgba(0,0,0,0.05) 2px, transparent 0);
+  background-size: 40px 40px;
+}
+
+#app {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1, h2, h3, h4, h5 {
+  line-height: 1.2;
+}
+
+button {
+  font-family: inherit;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.dark-theme .app-container {
+  background-color: rgba(30, 41, 59, 0.8);
+}
+
+.app-title {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 32px;
+  text-align: center;
+  background: linear-gradient(45deg, var(--x-color), var(--o-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.05em;
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    padding: 24px 16px;
+    border-radius: 16px;
+  }
+
+  .app-title {
+    font-size: 3rem;
+    margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-container {
+    padding: 16px 12px;
+  }
+
+  .app-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+}
+</style>
