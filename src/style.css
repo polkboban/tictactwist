@@ -4,7 +4,7 @@
   font-weight: 400;
 
   /* Light theme colors */
-  --bg-color: #f8fafc;
+  --bg-color: #ffffff;
   --text-color: #334155;
   --cell-bg-color: #ffffff;
   --status-bg-color: #f1f5f9;
@@ -37,7 +37,7 @@
 
 /* Dark theme */
 .dark-theme {
-  --bg-color: #1e293b;
+  --bg-color: #f5f6f8;
   --text-color: #f1f5f9;
   --cell-bg-color: #334155;
   --status-bg-color: #334155;
@@ -56,7 +56,7 @@
   --restart-btn-color: #1e3a8a;
   --reset-btn-color: #991b1b;
   --mode-btn-color: #854d0e;
-  --theme-btn-color: #475569;
+  --theme-btn-color: #30363f;
 }
 
 body {
@@ -66,14 +66,14 @@ body {
   background-color: var(--bg-color);
   background-image: url('/tic-tac-toe-seamless-pattern-yellow-background-vector-illustration_723710-1062.avif');
   background-repeat: repeat;
-  background-size: 400px;
+  background-size: 500px;
   background-position: center;
   will-change: background-image;
   color: var(--text-color);
   transition: background-color 0.3s ease, color 0.3s ease;
   position: relative;
   overflow-x: hidden;
-  backdrop-filter: blur(60px);
+  backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(60px);
   background-attachment: fixed;
 }
@@ -100,9 +100,9 @@ button {
   align-items: center;
   padding: 32px;
   width: 100%;
-  max-width: 800px;
+  max-width: 750px;
   margin: 0 auto;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(235, 206, 19, 0.762);
   backdrop-filter: blur(8px);
   border-radius: 24px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
