@@ -15,7 +15,6 @@ const emit = defineEmits<{
   backToMenu: [];
 }>();
 
-// Game state
 const board = ref<BoardType>(createEmptyBoard());
 const currentPlayer = ref<CellValue>('X');
 const winner = ref<CellValue>(null);
@@ -23,15 +22,12 @@ const winningCombo = ref<WinningCombination | null>(null);
 const isDraw = ref(false);
 const gameOver = computed(() => winner.value !== null || isDraw.value);
 
-// Score tracking
 const xWins = ref(0);
 const oWins = ref(0);
 const draws = ref(0);
 
-// Game settings
 const isDarkMode = ref(false);
 
-// Theme management
 const toggleTheme = () => {
   isDarkMode.value = !isDarkMode.value;
   if (isDarkMode.value) {
@@ -43,7 +39,6 @@ const toggleTheme = () => {
   localStorage.setItem('ticTacToeDarkMode', isDarkMode.value.toString());
 };
 
-// Initialize theme from localStorage
 onMounted(() => {
   const savedDarkMode = localStorage.getItem('ticTacToeDarkMode');
   if (savedDarkMode === 'true') {
@@ -52,7 +47,6 @@ onMounted(() => {
   }
 });
 
-// Game actions
 const makeMove = (row: number, col: number) => {
   if (board.value[row][col] === null && !gameOver.value) {
     board.value[row][col] = currentPlayer.value;
@@ -97,7 +91,6 @@ const resetScores = () => {
   restartGame();
 };
 
-// Save scores in localStorage
 watch([xWins, oWins, draws], () => {
   localStorage.setItem('ticTacToeScores', JSON.stringify({
     x: xWins.value,
@@ -106,7 +99,6 @@ watch([xWins, oWins, draws], () => {
   }));
 });
 
-// Load scores from localStorage
 onMounted(() => {
   const savedScores = localStorage.getItem('ticTacToeScores');
   if (savedScores) {
@@ -126,7 +118,7 @@ onMounted(() => {
   <div class="game-container">
     <div class="top-section">
       <button class="back-button" @click="emit('backToMenu')">
-        ← Back to Menu
+        ← Home
       </button>
       
       <GameControls
@@ -184,6 +176,7 @@ onMounted(() => {
   padding: 12px 24px;
   font-size: 1.1rem;
   font-weight: 600;
+  font-style: bold;
   border: none;
   border-radius: 12px;
   background-color: var(--btn-bg-color);

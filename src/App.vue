@@ -42,7 +42,7 @@ const startGame = (withAI: boolean) => {
 <style>
 .menu-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 16px;
   width: 100%;
   max-width: 300px;
@@ -51,9 +51,11 @@ const startGame = (withAI: boolean) => {
 
 .menu-button {
   padding: 16px 32px;
-  font-size: 1.25rem;
+  font-size: 1.20rem;
   font-weight: 600;
-  border: none;
+  border: 2px solid  ;
+  background-color: var(rgba(236, 15, 15, 0.8));
+  box-shadow: 0 10px 14px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.2s ease;

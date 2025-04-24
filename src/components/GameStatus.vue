@@ -29,16 +29,20 @@ const statusClass = computed(() => {
 });
 </script>
 
+<!--
 <template>
   <div :class="statusClass">
     <h2>{{ statusMessage }}</h2>
   </div>
 </template>
+-->
+
+
 
 <style scoped>
 .game-status {
-  margin: 16px 0;
-  padding: 12px;
+  margin: 16px ;
+  padding: 14px;
   border-radius: 8px;
   background-color: var(--status-bg-color);
   text-align: center;

@@ -31,12 +31,12 @@ const props = defineProps<Props>();
 <style scoped>
 .game-controls {
   display: flex;
-  gap: 12px;
+  gap: 1px;
   flex-wrap: wrap;
 }
 
 .control-btn {
-  padding: 12px 24px;
+  padding: 12px 14px ;
   font-size: 1.1rem;
   font-weight: 600;
   border: none;
@@ -45,6 +45,9 @@ const props = defineProps<Props>();
   transition: all 0.2s ease;
   color: var(--btn-text-color);
   white-space: nowrap;
+  flex: 1 1 auto;
+  min-width: 100px;
+  margin-right: 25px;
 }
 
 .control-btn:hover {

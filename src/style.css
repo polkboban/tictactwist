@@ -39,7 +39,7 @@
 .dark-theme {
   --bg-color: #f5f6f8;
   --text-color: #f1f5f9;
-  --cell-bg-color: #334155;
+  --cell-bg-color: #19191ab6;
   --status-bg-color: #334155;
   --score-bg-color: #334155;
   --winning-bg-color: #064e3b;
@@ -106,6 +106,7 @@ button {
   backdrop-filter: blur(8px);
   border-radius: 24px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border-style: dashed;
 }
 
 .dark-theme .app-container {
@@ -128,6 +129,7 @@ button {
   .app-container {
     padding: 24px 16px;
     border-radius: 16px;
+
   }
 
   .app-title {
