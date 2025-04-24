@@ -115,16 +115,14 @@ button {
 }
 
 .app-title {
-  font-size: 6rem;
+  font-size: 5rem;
   font-weight: 800;
-  font-family: 'Rubik Glitch', sans-serif;
+  font-family: 'Oi', sans-serif;
   margin-bottom: 32px;
   text-align: center;
-  background: linear-gradient(45deg, var(--x-color), var(--o-color));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  letter-spacing: -0.05em;
+  color: rgba(0, 0, 0, 0.863);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 255, 255, 0.4);
+  letter-spacing: 0em;
 }
 
 @media (max-width: 768px) {
