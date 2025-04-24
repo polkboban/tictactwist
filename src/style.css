@@ -106,7 +106,8 @@ button {
   backdrop-filter: blur(8px);
   border-radius: 24px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  border-style: dashed;
+  border-style: solid dashed;
+  border-width: 5px;
 }
 
 .dark-theme .app-container {
@@ -114,8 +115,9 @@ button {
 }
 
 .app-title {
-  font-size: 4rem;
+  font-size: 6rem;
   font-weight: 800;
+  font-family: 'Rubik Glitch', sans-serif;
   margin-bottom: 32px;
   text-align: center;
   background: linear-gradient(45deg, var(--x-color), var(--o-color));

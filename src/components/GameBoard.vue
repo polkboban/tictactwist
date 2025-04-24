@@ -157,11 +157,14 @@ onMounted(() => {
 </template>
 
 <style scoped>
+
 .game-container {
+  font-family: 'Moogalator', system-ui, -apple-system, sans-serif;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+  
 }
 
 .top-section {

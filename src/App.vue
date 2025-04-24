@@ -51,9 +51,11 @@ const startGame = (withAI: boolean) => {
 
 .menu-button {
   padding: 16px 32px;
-  font-size: 1.20rem;
+  font-size: 1.50rem;
   font-weight: 600;
-  border: 2px solid  ;
+  font-family: 'Jersey 15', sans-serif;
+  border: 2px dashed;
+  border-width: 4px;
   background-color: var(rgba(236, 15, 15, 0.8));
   box-shadow: 0 10px 14px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
