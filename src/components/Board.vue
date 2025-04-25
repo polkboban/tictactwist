@@ -47,9 +47,9 @@ const isWinningCell = (row: number, col: number) => {
   display: grid;
   grid-template-rows: repeat(3, 1fr);
   width: 100%;
-  max-width: 600px;
+  max-width: 570px;
   aspect-ratio: 1;
-  margin:  auto;
+  margin: 1px 50px 10px 10px;
   gap: 16px;
   padding: 16px;
 }

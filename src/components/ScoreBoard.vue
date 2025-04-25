@@ -30,7 +30,7 @@ defineProps<Props>();
   display: flex;
   justify-content: space-between;
   max-width: 350px;
-  margin: 24px auto;
+  margin: 14px 64px 14px 175px;
   gap: 16px;
 }
 
