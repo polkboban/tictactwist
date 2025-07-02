@@ -1,9 +1,29 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import GameBoard from './components/GameBoard.vue';
 
 const gameStarted = ref(false);
 const isAiMode = ref(false);
+const isMusicPlaying = ref(false);
+const audio = ref<HTMLAudioElement | null>(null);
+
+onMounted(() => {
+  audio.value = new Audio('/assets/sounds/game-music.mp3');
+  if (audio.value) {
+    audio.value.loop = true;
+    audio.value.volume = 0.5;
+  }
+});
+
+const toggleMusic = () => {
+  if (!audio.value) return;
+  if (isMusicPlaying.value) {
+    audio.value.pause();
+  } else {
+    audio.value.play();
+  }
+  isMusicPlaying.value = !isMusicPlaying.value;
+};
 
 const startGame = (withAI: boolean) => {
   isAiMode.value = withAI;
@@ -13,6 +33,13 @@ const startGame = (withAI: boolean) => {
 
 <template>
   <div class="app-container">
+    <button
+      class="music-toggle"
+      @click="toggleMusic"
+      :class="{ 'playing': isMusicPlaying }"
+    >
+    🎵
+    </button>
     <template v-if="!gameStarted">
       <h1 class="app-title">Tic Tac Toe</h1>
       <div class="menu-container">
@@ -77,10 +104,57 @@ const startGame = (withAI: boolean) => {
   background-color: var(--mode-btn-color);
 }
 
+.music-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  width: 48px;
+  height: 48px;
+  background-color: var(--btn-bg-color);
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  color: var(--btn-text-color);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.music-toggle.playing {
+  background-color: var(--playing-bg-color);
+  transform: scale(1.1);
+}
+
+.music-toggle:hover {
+  background-color: var(--hover-bg-color);
+  transform: scale(1.05);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .music-toggle {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    top: 10px;
+    right: 10px; 
+  }
+}
+
 @media (max-width: 480px) {
   .menu-button {
     padding: 14px 24px;
     font-size: 1.1rem;
   }
 }
+
 </style>
