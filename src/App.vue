@@ -105,18 +105,20 @@ const startGame = (withAI: boolean) => {
 }
 
 .music-toggle {
-  position: fixed;
-  top: 16px;
-  right: 16px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
   width: 48px;
   height: 48px;
-  background-color: var(--btn-bg-color);
-  border: none;
   border-radius: 50%;
-  font-size: 24px;
-  color: var(--btn-text-color);
+  border: 3px dashed #000;
+  background-color: var(--btn-bg-color);
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
 }
 .music-toggle.playing {
   background-color: var(--playing-bg-color);
