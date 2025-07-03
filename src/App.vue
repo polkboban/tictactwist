@@ -8,7 +8,7 @@ const isMusicPlaying = ref(false);
 const audio = ref<HTMLAudioElement | null>(null);
 
 onMounted(() => {
-  audio.value = new Audio('/assets/sounds/game-music.mp3');
+  audio.value = new Audio('/audio/bgm.mp3');
   if (audio.value) {
     audio.value.loop = true;
     audio.value.volume = 0.5;
