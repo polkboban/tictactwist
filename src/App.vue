@@ -11,7 +11,7 @@ onMounted(() => {
   audio.value = new Audio('/audio/bgm.mp3');
   if (audio.value) {
     audio.value.loop = true;
-    audio.value.volume = 0.5;
+    audio.value.volume = 0.2;
   }
 });
 
@@ -32,14 +32,15 @@ const startGame = (withAI: boolean) => {
 </script>
 
 <template>
-  <div class="app-container">
-    <button
+  <button
       class="music-toggle"
       @click="toggleMusic"
       :class="{ 'playing': isMusicPlaying }"
     >
     🎵
     </button>
+  <div class="app-container">
+    
     <template v-if="!gameStarted">
       <h1 class="app-title">Tic Tac Toe</h1>
       <div class="menu-container">
@@ -106,7 +107,7 @@ const startGame = (withAI: boolean) => {
 
 .music-toggle {
   position: absolute;
-  top: 20px;
+  bottom: 20px;
   right: 20px;
   width: 48px;
   height: 48px;
@@ -147,7 +148,7 @@ const startGame = (withAI: boolean) => {
     width: 40px;
     height: 40px;
     font-size: 20px;
-    top: 10px;
+    bottom: 10px;
     right: 10px; 
   }
 }
