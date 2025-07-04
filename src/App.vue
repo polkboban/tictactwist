@@ -107,7 +107,7 @@ const startGame = (withAI: boolean) => {
 
 .music-toggle {
   position: absolute;
-  bottom: 20px;
+  top: 20px;
   right: 20px;
   width: 48px;
   height: 48px;
@@ -148,7 +148,7 @@ const startGame = (withAI: boolean) => {
     width: 40px;
     height: 40px;
     font-size: 20px;
-    bottom: 10px;
+    top: 10px;
     right: 10px; 
   }
 }
