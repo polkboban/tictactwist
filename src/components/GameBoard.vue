@@ -181,8 +181,9 @@ onMounted(() => {
   font-size: 1.3rem;
   font-weight: 600;
   font-style: bold;
-  border: none;
-  border-radius: 12px;
+  border: dashed 2px;
+  border-width: 4px;
+  border-radius: 26px;
   background-color: var(--btn-bg-color);
   color: var(--btn-text-color);
   cursor: pointer;
