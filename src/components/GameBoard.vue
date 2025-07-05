@@ -159,11 +159,11 @@ onMounted(() => {
 <style scoped>
 
 .game-container {
-  font-family: 'Moogalator', system-ui, -apple-system, sans-serif;
+  font-family: 'Jersey 15', sans-serif;
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+  margin: 0rem auto;
+  padding: 17px;
   
 }
 
@@ -171,13 +171,14 @@ onMounted(() => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 32px;
+  margin-bottom: 12px;
   gap: 20px;
 }
 
 .back-button {
   padding: 12px 24px;
-  font-size: 1.1rem;
+  /*font-family: Jersey 15, sans-serif;*/
+  font-size: 1.3rem;
   font-weight: 600;
   font-style: bold;
   border: none;
