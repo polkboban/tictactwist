@@ -41,7 +41,8 @@ const cellClass = computed(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 4.5rem;
+  font-family: 'monospaced', sans-serif;
+  font-size: 6.5rem;
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);

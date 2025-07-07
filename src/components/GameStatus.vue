@@ -38,7 +38,6 @@ const statusClass = computed(() => {
 -->
 
 
-
 <style scoped>
 .game-status {
   margin: 16px ;
