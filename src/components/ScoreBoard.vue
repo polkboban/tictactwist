@@ -40,6 +40,7 @@ defineProps<Props>();
   flex-direction: column;
   align-items: center;
   padding: 12px;
+  border: solid 1px;
   border-radius: 18px;
   background-color: var(--score-bg-color);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -52,26 +53,26 @@ defineProps<Props>();
 
 .x-score {
   color: var(--x-color);
-  border-bottom: 3px solid var(--x-color);
+  border-bottom: 4px solid var(--x-color);
 }
 
 .o-score {
   color: var(--o-color);
-  border-bottom: 3px solid var(--o-color);
+  border-bottom: 4px solid var(--o-color);
 }
 
 .draw-score {
   color: var(--text-color);
-  border-bottom: 3px solid var(--draw-color);
+  border-bottom: 4px solid var(--draw-color);
 }
 
 .player {
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 600;
 }
 
 .count {
-  font-size: 1.75rem;
+  font-size: 2.35rem;
   font-weight: 700;
 }
 </style>

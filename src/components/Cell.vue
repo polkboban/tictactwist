@@ -36,7 +36,7 @@ const cellClass = computed(() => {
 .cell {
   aspect-ratio: 1;
   background-color: var(--cell-bg-color);
-  border: none;
+  border: solid 3px;
   border-radius: 20px;
   display: flex;
   align-items: center;
