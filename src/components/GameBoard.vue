@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, watch } from 'vue';
 import Board from './Board.vue';
-import GameStatus from './GameStatus.vue';
 import ScoreBoard from './ScoreBoard.vue';
 import GameControls from './GameControls.vue';
 import { checkWinner, isBoardFull, createEmptyBoard, getBestMove } from '../utils/gameUtils';

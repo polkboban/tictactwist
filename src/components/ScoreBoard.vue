@@ -32,6 +32,7 @@ defineProps<Props>();
   max-width: 350px;
   margin: 19px 64px 14px 180px;
   gap: 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, sans-serif;
 }
 
 .score {
@@ -67,7 +68,7 @@ defineProps<Props>();
 }
 
 .player {
-  font-size: 1.35rem;
+  font-size: 1.55rem;
   font-weight: 600;
 }
 
