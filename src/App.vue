@@ -117,6 +117,7 @@ const startGame = (withAI: boolean) => {
   cursor: pointer;
   font-size: 24px;
   display: flex;
+  z-index: 10;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;

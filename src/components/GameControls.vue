@@ -22,10 +22,6 @@ const props = defineProps<Props>();
     <button class="control-btn reset" @click="emit('resetScores')">
       Reset Scores
     </button>
-    <button class="control-btn mode" @click="emit('toggleGameMode')">
-      {{ isAiMode ? 'Switch to PvP' : 'Switch to PvAI' }}
-    </button>
-    
     
   </div>
 </template>
