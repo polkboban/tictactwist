@@ -115,13 +115,16 @@ button {
 }
 
 .app-title {
-  font-size: 5rem;
-  font-weight: 800;
-  font-family: 'Oi', sans-serif;
+  font-size: 6rem;
+  font-weight: 900;
+  font-family: 'Menbere', sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
   margin-bottom: 32px;
+  margin-top: 12px;
   text-align: center;
-  color: rgba(0, 0, 0, 0.863);
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 255, 255, 0.4);
+  color: rgba(43, 43, 43, 0.863);
+  text-shadow: 0 0 5px rgba(251, 205, 0, 0.8), 0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 255, 255, 0.4);
   letter-spacing: 0em;
 }
 

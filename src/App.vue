@@ -42,7 +42,7 @@ const startGame = (withAI: boolean) => {
   <div class="app-container">
     
     <template v-if="!gameStarted">
-      <h1 class="app-title">Tic Tac Toe</h1>
+      <h1 class="app-title">TIC-TAC-TOE</h1>
       <div class="menu-container">
         <button 
           class="menu-button friend-mode"
