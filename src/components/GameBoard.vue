@@ -170,7 +170,8 @@ onMounted(() => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 12px;
+  margin-bottom: 2px;
+  margin-top: -25px;
   gap: 20px;
 }
 
@@ -204,6 +205,7 @@ onMounted(() => {
 .status-section {
   width: 100%;
   max-width: 800px;
+  margin-bottom: -22px;
 }
 
 @media (max-width: 768px) {
