@@ -170,7 +170,8 @@ onMounted(() => {
   max-width: 1200px;
   margin: 0rem auto;
   padding: 17px;
-  
+  margin-left: -20px;
+  margin-right: -58px;
 }
 
 .top-section {

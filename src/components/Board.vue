@@ -49,9 +49,10 @@ const isWinningCell = (row: number, col: number) => {
   width: 100%;
   max-width: 530px;
   aspect-ratio: 1;
-  margin: 1px 50px 10px 10px;
+  margin: 0px 50px -50px 10px;
   gap: 16px;
   padding: 16px;
+
 }
 
 .board-row {
