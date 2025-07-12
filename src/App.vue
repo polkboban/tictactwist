@@ -120,15 +120,15 @@ const startGame = (withAI: boolean) => {
   z-index: 10;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: all 0.1s ease;
 }
 .music-toggle.playing {
-  background-color: var(--playing-bg-color);
-  transform: scale(1.1);
+  background-color: #f6f6f6;
+  transform: scale(1.03);
 }
 
 .music-toggle:hover {
-  background-color: #f0f0f0;
+  background-color: #fff9e6;
   transform: scale(1.02);
 }
 
