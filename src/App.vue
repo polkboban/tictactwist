@@ -112,7 +112,7 @@ const startGame = (withAI: boolean) => {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  border: 3px dashed #000;
+  border: 4px dashed #000;
   background-color: var(--btn-bg-color);
   cursor: pointer;
   font-size: 24px;
@@ -128,8 +128,8 @@ const startGame = (withAI: boolean) => {
 }
 
 .music-toggle:hover {
-  background-color: var(--hover-bg-color);
-  transform: scale(1.05);
+  background-color: #f0f0f0;
+  transform: scale(1.02);
 }
 
 @keyframes pulse {
