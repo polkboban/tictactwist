@@ -35,8 +35,9 @@ defineProps<Props>();
 
 .control-btn {
   padding: 12px 14px ;
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
   border: dashed 4px ;
   border-radius: 23px;
   cursor: pointer;

@@ -14,6 +14,7 @@ const emit = defineEmits<{
   backToMenu: [];
 }>();
 
+
 const board = ref<BoardType>(createEmptyBoard());
 const currentPlayer = ref<CellValue>('X');
 const winner = ref<CellValue>(null);
@@ -27,6 +28,7 @@ const draws = ref(0);
 
 const isDarkMode = ref(false);
 
+
 const toggleTheme = () => {
   isDarkMode.value = !isDarkMode.value;
   if (isDarkMode.value) {
@@ -38,6 +40,7 @@ const toggleTheme = () => {
   localStorage.setItem('ticTacToeDarkMode', isDarkMode.value.toString());
 };
 
+
 onMounted(() => {
   const savedDarkMode = localStorage.getItem('ticTacToeDarkMode');
   if (savedDarkMode === 'true') {
@@ -45,6 +48,7 @@ onMounted(() => {
     document.body.classList.add('dark-theme');
   }
 });
+
 
 const makeMove = (row: number, col: number) => {
   if (board.value[row][col] === null && !gameOver.value) {
@@ -75,6 +79,7 @@ const makeMove = (row: number, col: number) => {
   }
 };
 
+
 const restartGame = () => {
   board.value = createEmptyBoard();
   currentPlayer.value = 'X';
@@ -98,6 +103,7 @@ watch([xWins, oWins, draws], () => {
   }));
 });
 
+
 onMounted(() => {
   const savedScores = localStorage.getItem('ticTacToeScores');
   if (savedScores) {
@@ -112,6 +118,7 @@ onMounted(() => {
   }
 });
 </script>
+
 
 <template>
   <div class="game-container">

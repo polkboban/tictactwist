@@ -3,7 +3,6 @@
   line-height: 1.5;
   font-weight: 400;
 
-  /* Light theme colors */
   --bg-color: #ffffff;
   --text-color: #334155;
   --cell-bg-color: #ffffff;
@@ -24,8 +23,8 @@
   
   --btn-bg-color: #f1f5f9;
   --btn-text-color: #334155;
-  --restart-btn-color: #dbeafe;
-  --reset-btn-color: #fee2e2;
+  --restart-btn-color: #bbd8fd;
+  --reset-btn-color: #fdb7b7;
   --mode-btn-color: #fef3c7;
   --theme-btn-color: #f1f5f9;
 
@@ -35,7 +34,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Dark theme */
 .dark-theme {
   --bg-color: #f5f6f8;
   --text-color: #f1f5f9;
