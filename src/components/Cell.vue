@@ -6,6 +6,7 @@ interface Props {
   value: CellValue;
   isWinning: boolean;
   disabled: boolean;
+  isRemoved: boolean;
 }
 
 const props = defineProps<Props>();
@@ -16,6 +17,7 @@ const cellClass = computed(() => {
   if (props.value === 'O') classes.push('cell-o');
   if (props.isWinning) classes.push('winning');
   if (props.disabled && props.value === null) classes.push('disabled');
+  if (props.isRemoved) classes.push('removed');
   return classes;
 });
 </script>
@@ -77,6 +79,20 @@ const cellClass = computed(() => {
 .x-mark, .o-mark {
   animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   transform-origin: center;
+}
+
+.removed {
+  animation: fadeOut 0.5s ease-out;
+  background-color: rgba(255, 0, 0, 0.25);  
+}
+
+@keyframes fadeOut {
+  from {
+    background-color: rgba(255, 0, 0, 0.4);
+  }
+  to {
+    background-color: var(--cell-bg-color);
+  }
 }
 
 @keyframes pulse {

@@ -7,6 +7,7 @@ interface Props {
   board: CellValue[][];
   winningCombo: WinningCombination | null;
   gameOver: boolean;
+  recentlyRemoved: { row: number; col: number } | null;
 }
 
 const props = defineProps<Props>();
@@ -35,6 +36,7 @@ const isWinningCell = (row: number, col: number) => {
         :key="`cell-${rowIndex}-${colIndex}`"
         :value="cell"
         :isWinning="isWinningCell(rowIndex, colIndex)"
+        :isRemoved="recentlyRemoved?.row === rowIndex && recentlyRemoved?.col === colIndex"
         :disabled="gameOver || cell !== null"
         @click="handleCellClick(rowIndex, colIndex)"
       />

@@ -14,7 +14,7 @@ const emit = defineEmits<{
   backToMenu: [];
 }>();
 
-
+const recentlyRemoved = ref<{ row: number; col: number } | null>(null);
 const board = ref<BoardType>(createEmptyBoard());
 const currentPlayer = ref<CellValue>('X');
 const winner = ref<CellValue>(null);
@@ -54,11 +54,9 @@ onMounted(() => {
 
 const makeMove = (row: number, col: number) => {
   if (board.value[row][col] === null && !gameOver.value) {
-    // Make new move
     board.value[row][col] = currentPlayer.value;
     moveHistory.value.push({ row, col, player: currentPlayer.value });
 
-    // Enforce max 4 moves per player
     const playerMoves = moveHistory.value.filter(move => move.player === currentPlayer.value);
     while (playerMoves.length > 4) {
       const oldestMove = playerMoves[0];
@@ -68,7 +66,12 @@ const makeMove = (row: number, col: number) => {
         moveHistory.value.splice(index, 1);
       }
       playerMoves.shift();
+      recentlyRemoved.value = { row: oldestMove.row, col: oldestMove.col };
+        setTimeout(() => {
+          recentlyRemoved.value = null;
+        }, 500); 
     }
+    
 
     const result = checkWinner(board.value);
     winner.value = result.winner;
@@ -170,6 +173,7 @@ onMounted(() => {
         :board="board"
         :winningCombo="winningCombo"
         :gameOver="gameOver"
+        :recentlyRemoved="recentlyRemoved"
         @makeMove="makeMove"
       />
     </div>
