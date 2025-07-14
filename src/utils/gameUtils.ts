@@ -1,17 +1,17 @@
 import type { CellValue, Board, WinningCombination } from '../types';
 
-// Check for a winner on the board
+// checkwinner
 export function checkWinner(board: Board): { winner: CellValue; winningCombo: WinningCombination | null } {
   const winPatterns: number[][][] = [
-    // Rows
+    // row
     [[0, 0], [0, 1], [0, 2]],
     [[1, 0], [1, 1], [1, 2]],
     [[2, 0], [2, 1], [2, 2]],
-    // Columns
+    // column
     [[0, 0], [1, 0], [2, 0]],
     [[0, 1], [1, 1], [2, 1]],
     [[0, 2], [1, 2], [2, 2]],
-    // Diagonals
+    // diagonal
     [[0, 0], [1, 1], [2, 2]],
     [[0, 2], [1, 1], [2, 0]]
   ];
@@ -33,12 +33,12 @@ export function checkWinner(board: Board): { winner: CellValue; winningCombo: Wi
   return { winner: null, winningCombo: null };
 }
 
-// Check if the board is full (draw)
+// draw
 export function isBoardFull(board: Board): boolean {
   return board.every(row => row.every(cell => cell !== null));
 }
 
-// Get a random valid move for AI
+// aimove
 export function getRandomMove(board: Board): [number, number] | null {
   const emptyPositions: [number, number][] = [];
   
@@ -56,7 +56,6 @@ export function getRandomMove(board: Board): [number, number] | null {
   return emptyPositions[randomIndex];
 }
 
-// Create a new empty board
 export function createEmptyBoard(): Board {
   return [
     [null, null, null],
@@ -65,12 +64,10 @@ export function createEmptyBoard(): Board {
   ];
 }
 
-// Simple AI that tries to win if possible, block opponent if needed, or plays randomly
+// ai
 export function getBestMove(board: Board, aiPlayer: CellValue): [number, number] | null {
-  // Clone the board to avoid modifying the original
   const cloneBoard = (b: Board): Board => b.map(row => [...row]);
   
-  // Check if player can win in the next move
   const canWin = (player: CellValue, b: Board): [number, number] | null => {
     for (let row = 0; row < 3; row++) {
       for (let col = 0; col < 3; col++) {
@@ -89,23 +86,18 @@ export function getBestMove(board: Board, aiPlayer: CellValue): [number, number]
   
   const humanPlayer = aiPlayer === 'X' ? 'O' : 'X';
   
-  // Try to win if possible
   const winningMove = canWin(aiPlayer, board);
   if (winningMove) return winningMove;
   
-  // Block opponent if they can win
   const blockingMove = canWin(humanPlayer, board);
   if (blockingMove) return blockingMove;
   
-  // Take center if available
   if (board[1][1] === null) return [1, 1];
   
-  // Take a corner if available
   const corners: [number, number][] = [[0, 0], [0, 2], [2, 0], [2, 2]];
   for (const [row, col] of corners) {
     if (board[row][col] === null) return [row, col];
   }
   
-  // Otherwise, make a random move
   return getRandomMove(board);
 }

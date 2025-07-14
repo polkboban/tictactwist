@@ -3,7 +3,7 @@ import { ref, computed, onMounted, watch } from 'vue';
 import Board from './Board.vue';
 import ScoreBoard from './ScoreBoard.vue';
 import GameControls from './GameControls.vue';
-import { checkWinner, isBoardFull, createEmptyBoard, getBestMove } from '../utils/gameUtils';
+import { checkWinner, createEmptyBoard, getBestMove } from '../utils/gameUtils';
 import type { CellValue, Board as BoardType, WinningCombination } from '../types';
 
 const props = defineProps<{
