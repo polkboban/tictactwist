@@ -21,6 +21,8 @@ const winner = ref<CellValue>(null);
 const winningCombo = ref<WinningCombination | null>(null);
 const isDraw = ref(false);
 const gameOver = computed(() => winner.value !== null || isDraw.value);
+const moveHistory = ref<{ row: number; col: number; player: CellValue }[]>([]);
+
 
 const xWins = ref(0);
 const oWins = ref(0);
@@ -52,21 +54,32 @@ onMounted(() => {
 
 const makeMove = (row: number, col: number) => {
   if (board.value[row][col] === null && !gameOver.value) {
+    // Make new move
     board.value[row][col] = currentPlayer.value;
-    
+    moveHistory.value.push({ row, col, player: currentPlayer.value });
+
+    // Enforce max 4 moves per player
+    const playerMoves = moveHistory.value.filter(move => move.player === currentPlayer.value);
+    while (playerMoves.length > 4) {
+      const oldestMove = playerMoves[0];
+      board.value[oldestMove.row][oldestMove.col] = null;
+      const index = moveHistory.value.findIndex(m => m.row === oldestMove.row && m.col === oldestMove.col);
+      if (index !== -1) {
+        moveHistory.value.splice(index, 1);
+      }
+      playerMoves.shift();
+    }
+
     const result = checkWinner(board.value);
     winner.value = result.winner;
     winningCombo.value = result.winningCombo;
-    
+
     if (winner.value) {
       if (winner.value === 'X') xWins.value++;
       else if (winner.value === 'O') oWins.value++;
-    } else if (isBoardFull(board.value)) {
-      isDraw.value = true;
-      draws.value++;
     } else {
       currentPlayer.value = currentPlayer.value === 'X' ? 'O' : 'X';
-      
+
       if (props.isAiMode && currentPlayer.value === 'O') {
         setTimeout(() => {
           const aiMove = getBestMove(board.value, 'O');
@@ -78,6 +91,7 @@ const makeMove = (row: number, col: number) => {
     }
   }
 };
+
 
 
 const restartGame = () => {
