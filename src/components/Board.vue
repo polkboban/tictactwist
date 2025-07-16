@@ -53,7 +53,7 @@ const isWinningCell = (row: number, col: number) => {
         :y1="winningCombo[0][0] + 0.5"
         :x2="winningCombo[2][1] + 0.5"
         :y2="winningCombo[2][0] + 0.5"
-        stroke="#22d3ee"
+        :stroke="board[winningCombo[0][0]][winningCombo[0][1]] === 'X' ? '#2563eb' : '#ec4899'"
         stroke-width="0.15"
         stroke-linecap="round"
       >
