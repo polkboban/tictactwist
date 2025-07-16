@@ -16,7 +16,7 @@ defineProps<Props>();
     </div>
     <div class="score draw-score">
       <span class="player">Draws</span>
-      <span class="count">{{ draws }}</span>
+      <span class="draw-count"> ツ</span>
     </div>
     <div class="score o-score">
       <span class="player">O</span>
@@ -75,5 +75,11 @@ defineProps<Props>();
 .count {
   font-size: 2.35rem;
   font-weight: 700;
+}
+
+.draw-count {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--draw-color);
 }
 </style>
