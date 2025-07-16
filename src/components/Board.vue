@@ -41,11 +41,41 @@ const isWinningCell = (row: number, col: number) => {
         @click="handleCellClick(rowIndex, colIndex)"
       />
     </div>
+    <!-- Winning line overlay -->
+    <svg
+      v-if="winningCombo"
+      class="winning-line"
+      viewBox="0 0 3 3"
+      preserveAspectRatio="none"
+    >
+      <line
+        :x1="winningCombo[0][1] + 0.5"
+        :y1="winningCombo[0][0] + 0.5"
+        :x2="winningCombo[2][1] + 0.5"
+        :y2="winningCombo[2][0] + 0.5"
+        stroke="#22d3ee"
+        stroke-width="0.15"
+        stroke-linecap="round"
+      >
+        <animate attributeName="x2" :from="winningCombo[0][1] + 0.5" :to="winningCombo[2][1] + 0.5" dur="0.4s" fill="freeze"/>
+        <animate attributeName="y2" :from="winningCombo[0][0] + 0.5" :to="winningCombo[2][0] + 0.5" dur="0.4s" fill="freeze"/>
+      </line>
+    </svg>
   </div>
 </template>
 
 <style scoped>
+.winning-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
 .game-board {
+  position: relative; /* Add this so the SVG overlays correctly */
   display: grid;
   grid-template-rows: repeat(3, 1fr);
   width: 100%;

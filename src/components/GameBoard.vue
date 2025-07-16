@@ -54,24 +54,25 @@ onMounted(() => {
 
 const makeMove = (row: number, col: number) => {
   if (board.value[row][col] === null && !gameOver.value) {
-    board.value[row][col] = currentPlayer.value;
-    moveHistory.value.push({ row, col, player: currentPlayer.value });
-
+    // Find all moves for the current player
     const playerMoves = moveHistory.value.filter(move => move.player === currentPlayer.value);
-    while (playerMoves.length > 4) {
+    // If player already has 4 moves, remove the oldest one
+    if (playerMoves.length >= 4) {
       const oldestMove = playerMoves[0];
       board.value[oldestMove.row][oldestMove.col] = null;
-      const index = moveHistory.value.findIndex(m => m.row === oldestMove.row && m.col === oldestMove.col);
+      const index = moveHistory.value.findIndex(m => m.row === oldestMove.row && m.col === oldestMove.col && m.player === currentPlayer.value);
       if (index !== -1) {
         moveHistory.value.splice(index, 1);
       }
-      playerMoves.shift();
       recentlyRemoved.value = { row: oldestMove.row, col: oldestMove.col };
-        setTimeout(() => {
-          recentlyRemoved.value = null;
-        }, 500); 
+      setTimeout(() => {
+        recentlyRemoved.value = null;
+      }, 500);
     }
-    
+
+    // Now add the new move
+    board.value[row][col] = currentPlayer.value;
+    moveHistory.value.push({ row, col, player: currentPlayer.value });
 
     const result = checkWinner(board.value);
     winner.value = result.winner;
