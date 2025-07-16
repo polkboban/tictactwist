@@ -128,7 +128,7 @@ button {
 }
 
 .app-title:hover {
-  transform: translateY(-4px) scale(1.2);
+  transform: translateY(-4px) scale(1.1);
 }
 
 @media (max-width: 768px) {
