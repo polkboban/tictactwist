@@ -39,9 +39,10 @@ defineProps<Props>();
 
 .game-controls {
   display: flex;
-  gap: 16px; /* Increased gap for better spacing */
+  gap: 18px; /* Increased gap for better spacing */
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
 }
 
 .control-btn {

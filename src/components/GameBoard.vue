@@ -192,10 +192,11 @@ onMounted(() => {
 /* Renamed from .top-section and styles adjusted */
 .bottom-controls {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin-top: 2rem; /* Added margin to create space above the buttons */
   gap: 20px;
+  max-width: 1000px;
 }
 
 .back-button {

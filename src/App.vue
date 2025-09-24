@@ -114,6 +114,7 @@ const startGame = (withAI: boolean) => {
   padding: 16px 32px;
   font-size: 1.50rem;
   font-weight: 800;
+  align-items: center;
   font-family: 'Bangers', cursive;
   text-transform: uppercase;
   letter-spacing: 1px;
