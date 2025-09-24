@@ -1,6 +1,9 @@
 # Tic Tac Toe - Vue 3 + TypeScript + Vite
 
 A modern Tic Tac Toe game built with Vue 3, TypeScript, and Vite.
+## Preview
+
+![Tic Tac Toe Game Preview](/public/readmepreview.png)
 
 ## Features
 
