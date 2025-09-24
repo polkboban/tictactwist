@@ -42,20 +42,20 @@ const startGame = (withAI: boolean) => {
   <div class="app-container">
     
     <template v-if="!gameStarted">
-      <h1 class="app-title">TIC-TAC-TOE</h1>
+      <img src="/tttlogo4.png" alt="TIC-TAC-TOE" class="app-logo">
       <div class="menu-container">
-        <button 
-          class="menu-button friend-mode"
-          @click="startGame(false)"
-        >
-          Play with Friend
-        </button>
-        <button 
-          class="menu-button ai-mode"
-          @click="startGame(true)"
-        >
-          Play Alone
-        </button>
+      <button 
+        class="menu-button friend-mode"
+        @click="startGame(false)"
+      >
+        Play with Friend
+      </button>
+      <button 
+        class="menu-button ai-mode"
+        @click="startGame(true)"
+      >
+        Play Alone
+      </button>
       </div>
     </template>
     
@@ -68,41 +68,110 @@ const startGame = (withAI: boolean) => {
 </template>
 
 <style>
+/* Define new CSS variables for easier color management */
+:root {
+  --comic-red-dark: #cc0000;
+  --comic-red-light: #ff3333;
+  --comic-orange-dark: #cc6600;
+  --comic-orange-light: #ffcc00;
+  --comic-yellow-dark: #e6a000;
+  --comic-yellow-light: #ffcc00;
+  --comic-border-color: #333; /* Darker border */
+  --comic-text-color: #fff; /* White text for contrast */
+  --comic-text-shadow-color: #000;
+}
+
+
 .menu-container {
   display: flex;
   flex-direction: row;
   gap: 16px;
   width: 100%;
-  max-width: 300px;
+  max-width: 600px; /* Increased max-width to give buttons more space */
   margin: 0 auto;
+  justify-content: center; /* Center buttons horizontally */
+}
+
+.app-logo {
+  display: block;
+  max-width: 900px;
+  width: 80%;
+  margin: 0 auto -4rem auto;
+  user-select: none;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.app-logo:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
 }
 
 .menu-button {
   padding: 16px 32px;
   font-size: 1.50rem;
-  font-weight: 600;
-  font-family: 'Jersey 15', sans-serif;
-  border: 2px dashed;
-  border-width: 4px;
-  background-color: var(rgba(236, 15, 15, 0.8));
-  box-shadow: 0 10px 14px rgba(0, 0, 0, 0.1);
-  border-radius: 12px;
+  font-weight: 800; /* Bolder text */
+  font-family: 'Bangers', cursive; /* A more comic-style font */
+  text-transform: uppercase; /* All caps for comic style */
+  letter-spacing: 1px; /* Slight letter spacing */
+  
+  border: 4px solid var(--comic-border-color); /* Solid dark border */
+  border-radius: 12px; /* Keep rounded corners */
   cursor: pointer;
   transition: all 0.2s ease;
-  color: var(--btn-text-color);
+  color: var(--comic-text-color); /* White text */
+  text-shadow: 
+    -2px -2px 0 var(--comic-text-shadow-color),  
+    2px -2px 0 var(--comic-text-shadow-color),
+    -2px 2px 0 var(--comic-text-shadow-color),
+    2px 2px 0 var(--comic-text-shadow-color); /* Outline text */
+
+  /* Comic book style shadows and background */
+  box-shadow: 
+    inset 0 -6px 0 rgba(0,0,0,0.3), /* Inner bottom shadow */
+    inset 0 6px 0 rgba(255,255,255,0.3), /* Inner top highlight */
+    0 8px 0 var(--comic-border-color), /* Bottom "pop" shadow */
+    0 10px 15px rgba(0,0,0,0.3); /* Overall drop shadow */
+  
+  /* Gradient background for depth */
+  background-image: linear-gradient(to bottom, var(--button-light-color) 0%, var(--button-dark-color) 100%);
+  position: relative; /* Needed for pseudo-elements for halftone */
+  overflow: hidden; /* Ensure halftone pattern is clipped */
 }
+
+/* Halftone pattern effect */
+.menu-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(circle, rgba(0,0,0,0.3) 1px, transparent 1px);
+  background-size: 8px 8px; /* Adjust dot size and spacing */
+  opacity: 0.5; /* Adjust intensity */
+  pointer-events: none; /* Allow clicks to pass through */
+  mix-blend-mode: multiply; /* Blend with background color */
+}
+
 
 .menu-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px); /* Lift more on hover */
+  box-shadow: 
+    inset 0 -4px 0 rgba(0,0,0,0.3),
+    inset 0 4px 0 rgba(255,255,255,0.3),
+    0 12px 0 var(--comic-border-color), /* Deeper bottom shadow */
+    0 16px 20px rgba(0,0,0,0.4); /* Stronger drop shadow */
 }
 
+/* Specific colors for friend mode (red) and AI mode (blue) */
 .friend-mode {
-  background-color: var(--restart-btn-color);
+  --button-dark-color: var(--comic-red-dark);
+  --button-light-color: var(--comic-red-light);
 }
 
 .ai-mode {
-  background-color: var(--mode-btn-color);
+  --button-dark-color: var(--comic-orange-dark);
+  --button-light-color: var(--comic-orange-light);
 }
 
 .music-toggle {
@@ -145,6 +214,13 @@ const startGame = (withAI: boolean) => {
 }
 
 @media (max-width: 768px) {
+  .menu-container {
+    flex-direction: column; /* Stack buttons vertically on smaller screens */
+    max-width: 250px;
+  }
+  .menu-button {
+    width: 100%; /* Make buttons full width */
+  }
   .music-toggle {
     width: 40px;
     height: 40px;
@@ -160,5 +236,4 @@ const startGame = (withAI: boolean) => {
     font-size: 1.1rem;
   }
 }
-
 </style>

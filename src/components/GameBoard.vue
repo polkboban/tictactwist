@@ -54,9 +54,7 @@ onMounted(() => {
 
 const makeMove = (row: number, col: number) => {
   if (board.value[row][col] === null && !gameOver.value) {
-    // Find all moves for the current player
     const playerMoves = moveHistory.value.filter(move => move.player === currentPlayer.value);
-    // If player already has 4 moves, remove the oldest one
     if (playerMoves.length >= 4) {
       const oldestMove = playerMoves[0];
       board.value[oldestMove.row][oldestMove.col] = null;
@@ -70,7 +68,6 @@ const makeMove = (row: number, col: number) => {
       }, 500);
     }
 
-    // Now add the new move
     board.value[row][col] = currentPlayer.value;
     moveHistory.value.push({ row, col, player: currentPlayer.value });
 
@@ -169,7 +166,6 @@ onMounted(() => {
           :draws="draws"
         />
       </div>
-      
       <Board
         :board="board"
         :winningCombo="winningCombo"
@@ -234,6 +230,8 @@ onMounted(() => {
   max-width: 800px;
   margin-bottom: -22px;
 }
+
+
 
 @media (max-width: 768px) {
   .top-section {

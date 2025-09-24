@@ -41,26 +41,7 @@ const isWinningCell = (row: number, col: number) => {
         @click="handleCellClick(rowIndex, colIndex)"
       />
     </div>
-    <!-- Winning line overlay -->
-    <svg
-      v-if="winningCombo"
-      class="winning-line"
-      viewBox="0 0 3 3"
-      preserveAspectRatio="none"
-    >
-      <line
-        :x1="winningCombo[0][1] + 0.5"
-        :y1="winningCombo[0][0] + 0.5"
-        :x2="winningCombo[2][1] + 0.5"
-        :y2="winningCombo[2][0] + 0.5"
-        :stroke="board[winningCombo[0][0]][winningCombo[0][1]] === 'X' ? '#2563eb' : '#ec4899'"
-        stroke-width="0.15"
-        stroke-linecap="round"
-      >
-        <animate attributeName="x2" :from="winningCombo[0][1] + 0.5" :to="winningCombo[2][1] + 0.5" dur="0.4s" fill="freeze"/>
-        <animate attributeName="y2" :from="winningCombo[0][0] + 0.5" :to="winningCombo[2][0] + 0.5" dur="0.4s" fill="freeze"/>
-      </line>
-    </svg>
+    
   </div>
 </template>
 
@@ -75,23 +56,25 @@ const isWinningCell = (row: number, col: number) => {
   z-index: 2;
 }
 .game-board {
-  position: relative; /* Add this so the SVG overlays correctly */
+  position: relative;
   display: grid;
   grid-template-rows: repeat(3, 1fr);
-  width: 100%;
-  max-width: 530px;
   aspect-ratio: 1;
-  margin: 0px 50px -50px 10px;
+  max-width: 400px;
+  background: #fff;
+  border: 5px solid #000;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 10px 10px 0px #000; /* thick shadow offset */
   gap: 16px;
-  padding: 16px;
-
 }
 
 .board-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 16px;
 }
+
 
 @media (max-width: 768px) {
   .game-board {

@@ -37,34 +37,33 @@ const cellClass = computed(() => {
 <style scoped>
 .cell {
   aspect-ratio: 1;
-  background-color: var(--cell-bg-color);
-  border: solid 3px;
-  border-radius: 20px;
+  background-color: #b3ecf2;
+  border: 3px solid #000;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'monospaced', sans-serif;
-  font-size: 6.5rem;
+  font-family: 'Arial Black', sans-serif;
+  font-size: 4rem;
   font-weight: bold;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  position: relative;
-  overflow: hidden;
+  transition: transform 0.2s ease;
 }
 
 .cell:hover:not(.disabled) {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  transform: scale(1.05);
 }
 
-.cell-x {
-  color: var(--x-color);
+.x-mark {
+  color: #facc15; /* yellow */
+  -webkit-text-stroke: 3px #000; /* black outline */
 }
 
-.cell-o {
-  color: var(--o-color);
+.o-mark {
+  color: #facc15;
+  -webkit-text-stroke: 3px #000;
 }
+
 
 .winning {
   background-color: var(--winning-bg-color);

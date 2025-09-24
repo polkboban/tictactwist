@@ -62,16 +62,16 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-color: var(--bg-color);
-  background-image: url('/tic-tac-toe-seamless-pattern-yellow-background-vector-illustration_723710-1062.avif');
-  background-repeat: repeat;
-  background-size: 500px;
+  background-image: url('/4845746.jpg');
+  /*background-repeat: repeat;*/
+  background-size: cover;
   background-position: center;
   will-change: background-image;
   color: var(--text-color);
   transition: background-color 0.3s ease, color 0.3s ease;
   position: relative;
   overflow-x: hidden;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(0px);
   -webkit-backdrop-filter: blur(60px);
   background-attachment: fixed;
 }
@@ -100,12 +100,16 @@ button {
   width: 100%;
   max-width: 750px;
   margin: 0 auto;
+  /*
   background-color: rgba(235, 206, 19, 0.762);
   backdrop-filter: blur(8px);
+  
   border-radius: 24px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   border-style: solid dashed;
   border-width: 5px;
+  border-color: rgba(255, 255, 255, 0.3);
+  */
 }
 
 .dark-theme .app-container {

@@ -10,16 +10,24 @@ defineProps<Props>();
 
 <template>
   <div class="score-board">
+    <!-- Player X -->
     <div class="score x-score">
-      <span class="player">X</span>
+      <span class="symbol x">X</span>
+      <span class="label">PLAYER 1</span>
       <span class="count">{{ xWins }}</span>
     </div>
+
+    <!-- Draws -->
     <div class="score draw-score">
-      <span class="player">Draws</span>
-      <span class="draw-count"> ツ</span>
+      <span class="symbol draw">ツ</span>
+      <span class="label">DRAWS</span>
+      <span class="count">{{ draws }}</span>
     </div>
+
+    <!-- Player O -->
     <div class="score o-score">
-      <span class="player">O</span>
+      <span class="symbol o">O</span>
+      <span class="label">PLAYER 2</span>
       <span class="count">{{ oWins }}</span>
     </div>
   </div>
@@ -28,58 +36,41 @@ defineProps<Props>();
 <style scoped>
 .score-board {
   display: flex;
-  justify-content: space-between;
-  max-width: 350px;
-  margin: 19px 64px 14px 180px;
-  gap: 20px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, sans-serif;
+  justify-content: center;
+  gap: 3rem;
+  margin: 20px auto;
+  font-family: 'Arial Black', sans-serif;
 }
 
 .score {
-  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 12px;
-  border: solid 1px;
-  border-radius: 18px;
-  background-color: var(--score-bg-color);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  text-align: center;
 }
 
-.score:hover {
-  transform: translateY(-2px);
+.symbol {
+  font-size: 2.5rem;
+  color: #facc15; /* yellow */
+  -webkit-text-stroke: 3px #000; /* thick black outline */
+  margin-bottom: 0.3rem;
 }
 
-.x-score {
-  color: var(--x-color);
-  border-bottom: 4px solid var(--x-color);
-}
-
-.o-score {
-  color: var(--o-color);
-  border-bottom: 4px solid var(--o-color);
-}
-
-.draw-score {
-  color: var(--text-color);
-  border-bottom: 4px solid var(--draw-color);
-}
-
-.player {
-  font-size: 1.55rem;
-  font-weight: 600;
+.label {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 0.4rem;
 }
 
 .count {
-  font-size: 2.35rem;
-  font-weight: 700;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #000;
 }
 
-.draw-count {
-  font-size: 1.75rem;
-  font-weight: 600;
-  color: var(--draw-color);
+.draw-score .symbol {
+  color: #6b7280; /* gray for draws */
+  -webkit-text-stroke: 2px #000;
 }
 </style>
