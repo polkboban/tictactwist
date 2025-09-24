@@ -37,7 +37,7 @@ const cellClass = computed(() => {
 <style scoped>
 .cell {
   aspect-ratio: 1;
-  background-color: #b3ecf2;
+  background-color: #3f3f3f5d;
   border: 3px solid #000;
   border-radius: 12px;
   display: flex;
@@ -57,11 +57,13 @@ const cellClass = computed(() => {
 .x-mark {
   color: #facc15; /* yellow */
   -webkit-text-stroke: 3px #000; /* black outline */
+  text-shadow: #000 2px 2px 0, #000 -2px -2px 0;
 }
 
 .o-mark {
-  color: #facc15;
+  color: #fa2815;
   -webkit-text-stroke: 3px #000;
+  text-shadow: #000 2px 2px 0, #000 -2px -2px 0;
 }
 
 

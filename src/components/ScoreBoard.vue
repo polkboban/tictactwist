@@ -10,67 +10,115 @@ defineProps<Props>();
 
 <template>
   <div class="score-board">
-    <!-- Player X -->
     <div class="score x-score">
-      <span class="symbol x">X</span>
-      <span class="label">PLAYER 1</span>
+      <span class="label">PLAYER 1 (X)</span>
       <span class="count">{{ xWins }}</span>
     </div>
 
-    <!-- Draws -->
     <div class="score draw-score">
-      <span class="symbol draw">ツ</span>
       <span class="label">DRAWS</span>
       <span class="count">{{ draws }}</span>
     </div>
 
-    <!-- Player O -->
     <div class="score o-score">
-      <span class="symbol o">O</span>
-      <span class="label">PLAYER 2</span>
+      <span class="label">PLAYER 2 (O)</span>
       <span class="count">{{ oWins }}</span>
     </div>
   </div>
 </template>
 
 <style scoped>
+/* Define or import your comic book style variables here */
+:root {
+  --comic-red-dark: #cc0000;
+  --comic-red-light: #ff3333;
+  --comic-blue-dark: #0066cc;
+  --comic-blue-light: #3399ff;
+  --comic-yellow-dark: #e6a000;
+  --comic-yellow-light: #ffcc00;
+  --comic-border-color: #333;
+  --comic-text-color: #fff;
+  --comic-text-shadow-color: #000;
+}
+
 .score-board {
   display: flex;
   justify-content: center;
-  gap: 3rem;
+  align-items: center;
+  gap: 1.5rem;
   margin: 20px auto;
-  font-family: 'Arial Black', sans-serif;
+  flex-wrap: wrap; /* Allows panels to wrap on smaller screens */
 }
 
+/* Individual score panel styling */
 .score {
+  font-family: 'Bangers', cursive;
+  color: var(--comic-text-color);
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  border: 4px solid var(--comic-border-color);
+  text-align: center;
+  min-width: 140px;
+  box-sizing: border-box;
+
+  /* Enhanced 3D raised effect */
+  box-shadow: 
+    inset 0 -6px 0 rgba(0, 0, 0, 0.3),
+    inset 0 6px 0 rgba(255,255,255,0.3),
+    0 8px 0 var(--comic-border-color),
+    0 12px 16px rgba(0, 0, 0, 0.3),
+    0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(-4px);
+  
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
+  
+  /* Add subtle hover effect */
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.symbol {
-  font-size: 2.5rem;
-  color: #facc15; /* yellow */
-  -webkit-text-stroke: 3px #000; /* thick black outline */
-  margin-bottom: 0.3rem;
+.score:hover {
+  transform: translateY(-6px);
+  box-shadow: 
+    inset 0 -6px 0 rgba(0, 0, 0, 0.3),
+    inset 0 6px 0 rgba(255,255,255,0.3),
+    0 10px 0 var(--comic-border-color),
+    0 16px 20px rgba(0, 0, 0, 0.3),
+    0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Shared text style with comic outline */
+.label, .count {
+  text-shadow:
+    -2px -2px 0 var(--comic-text-shadow-color),
+    2px -2px 0 var(--comic-text-shadow-color),
+    -2px 2px 0 var(--comic-text-shadow-color),
+    2px 2px 0 var(--comic-text-shadow-color);
 }
 
 .label {
-  font-size: 0.9rem;
-  font-weight: bold;
-  color: #000;
-  margin-bottom: 0.4rem;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  line-height: 1.2;
 }
 
 .count {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #000;
+  font-size: 2.5rem;
+  line-height: 1.1;
 }
 
-.draw-score .symbol {
-  color: #6b7280; /* gray for draws */
-  -webkit-text-stroke: 2px #000;
+/* Specific background colors for each panel */
+.x-score {
+  background-image: linear-gradient(to bottom, var(--comic-blue-light), var(--comic-blue-dark));
+}
+
+.draw-score {
+  background-image: linear-gradient(to bottom, var(--comic-yellow-light), var(--comic-yellow-dark));
+}
+
+.o-score {
+  background-image: linear-gradient(to bottom, var(--comic-red-light), var(--comic-red-dark));
 }
 </style>

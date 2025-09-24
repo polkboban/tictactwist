@@ -68,7 +68,6 @@ const startGame = (withAI: boolean) => {
 </template>
 
 <style>
-/* Define CSS variables for easier color management */
 :root {
   --comic-red-dark: #cc0000;
   --comic-red-light: #ff3333;
@@ -175,7 +174,7 @@ const startGame = (withAI: boolean) => {
 }
 
 .music-toggle {
-  position: fixed;  /* Changed to fixed to ensure it stays in viewport */
+  position: fixed;  
   top: 20px;
   right: 20px;
   width: 48px;
@@ -190,7 +189,7 @@ const startGame = (withAI: boolean) => {
   justify-content: center;
   transition: all 0.2s ease;
 
-  background-image: linear-gradient(to bottom, var(--comic-yellow-light), var(--comic-yellow-dark));
+  background-image: linear-gradient(to bottom, var(--comic-red-light), var(--comic-red-dark));
   box-shadow: 
     inset 0 -4px 0 rgba(0,0,0,0.3),
     inset 0 4px 0 rgba(255,255,255,0.3),
@@ -208,7 +207,7 @@ const startGame = (withAI: boolean) => {
   right: 0;
   bottom: 0;
   background-image: radial-gradient(circle, rgba(0,0,0,0.2) 1px, transparent 1px);
-  background-size: 6px 6px; /* Smaller dots for the small button */
+  background-size: 6px 6px; 
   opacity: 0.5;
   pointer-events: none;
   mix-blend-mode: multiply;
@@ -224,14 +223,12 @@ const startGame = (withAI: boolean) => {
 }
 
 .music-toggle.playing {
-  /* "Pressed down" effect */
   transform: translateY(2px);
   box-shadow: 
-    inset 0 4px 0 rgba(0,0,0,0.3), /* Reverse inset shadows */
+    inset 0 4px 0 rgba(0,0,0,0.3), 
     0 3px 0 var(--comic-border-color),
     0 4px 6px rgba(0,0,0,0.4);
   
-  /* Change color to green to indicate 'on' */
   background-image: linear-gradient(to bottom, var(--comic-green-light), var(--comic-green-dark));
 }
 
