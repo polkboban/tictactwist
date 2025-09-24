@@ -37,7 +37,7 @@ const startGame = (withAI: boolean) => {
       @click="toggleMusic"
       :class="{ 'playing': isMusicPlaying }"
     >
-    🎵
+    ♫
     </button>
   <div class="app-container">
     
@@ -68,33 +68,37 @@ const startGame = (withAI: boolean) => {
 </template>
 
 <style>
-/* Define new CSS variables for easier color management */
+/* Define CSS variables for easier color management */
 :root {
   --comic-red-dark: #cc0000;
   --comic-red-light: #ff3333;
-  --comic-orange-dark: #cc6600;
-  --comic-orange-light: #ffcc00;
+  --comic-blue-dark: #0066cc;
+  --comic-blue-light: #3399ff;
   --comic-yellow-dark: #e6a000;
   --comic-yellow-light: #ffcc00;
-  --comic-border-color: #333; /* Darker border */
-  --comic-text-color: #fff; /* White text for contrast */
+  --comic-green-dark: #009624;
+  --comic-green-light: #00c853;
+  --comic-border-color: #333;
+  --comic-text-color: #fff;
   --comic-text-shadow-color: #000;
 }
 
-
 .menu-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 16px;
   width: 100%;
-  max-width: 600px; /* Increased max-width to give buttons more space */
+  max-width: 300px;
   margin: 0 auto;
-  justify-content: center; /* Center buttons horizontally */
+  justify-content: center;
+  margin-bottom: 40px;
 }
 
 .app-logo {
   display: block;
-  max-width: 900px;
+  margin-top: -10rem;
+  max-width: 1000px;
+  min-width: 500px;
   width: 80%;
   margin: 0 auto -4rem auto;
   user-select: none;
@@ -109,36 +113,33 @@ const startGame = (withAI: boolean) => {
 .menu-button {
   padding: 16px 32px;
   font-size: 1.50rem;
-  font-weight: 800; /* Bolder text */
-  font-family: 'Bangers', cursive; /* A more comic-style font */
-  text-transform: uppercase; /* All caps for comic style */
-  letter-spacing: 1px; /* Slight letter spacing */
+  font-weight: 800;
+  font-family: 'Bangers', cursive;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   
-  border: 4px solid var(--comic-border-color); /* Solid dark border */
-  border-radius: 12px; /* Keep rounded corners */
+  border: 4px solid var(--comic-border-color);
+  border-radius: 12px;
   cursor: pointer;
   transition: all 0.2s ease;
-  color: var(--comic-text-color); /* White text */
+  color: var(--comic-text-color);
   text-shadow: 
     -2px -2px 0 var(--comic-text-shadow-color),  
     2px -2px 0 var(--comic-text-shadow-color),
     -2px 2px 0 var(--comic-text-shadow-color),
-    2px 2px 0 var(--comic-text-shadow-color); /* Outline text */
+    2px 2px 0 var(--comic-text-shadow-color);
 
-  /* Comic book style shadows and background */
   box-shadow: 
-    inset 0 -6px 0 rgba(0,0,0,0.3), /* Inner bottom shadow */
-    inset 0 6px 0 rgba(255,255,255,0.3), /* Inner top highlight */
-    0 8px 0 var(--comic-border-color), /* Bottom "pop" shadow */
-    0 10px 15px rgba(0,0,0,0.3); /* Overall drop shadow */
+    inset 0 -6px 0 rgba(0,0,0,0.3),
+    inset 0 6px 0 rgba(255,255,255,0.3),
+    0 8px 0 var(--comic-border-color),
+    0 10px 15px rgba(0,0,0,0.3);
   
-  /* Gradient background for depth */
   background-image: linear-gradient(to bottom, var(--button-light-color) 0%, var(--button-dark-color) 100%);
-  position: relative; /* Needed for pseudo-elements for halftone */
-  overflow: hidden; /* Ensure halftone pattern is clipped */
+  position: relative;
+  overflow: hidden;
 }
 
-/* Halftone pattern effect */
 .menu-button::before {
   content: '';
   position: absolute;
@@ -147,79 +148,105 @@ const startGame = (withAI: boolean) => {
   right: 0;
   bottom: 0;
   background-image: radial-gradient(circle, rgba(0,0,0,0.3) 1px, transparent 1px);
-  background-size: 8px 8px; /* Adjust dot size and spacing */
-  opacity: 0.5; /* Adjust intensity */
-  pointer-events: none; /* Allow clicks to pass through */
-  mix-blend-mode: multiply; /* Blend with background color */
+  background-size: 8px 8px;
+  opacity: 0.5;
+  pointer-events: none;
+  mix-blend-mode: multiply;
 }
 
-
 .menu-button:hover {
-  transform: translateY(-4px); /* Lift more on hover */
+  transform: translateY(-4px);
   box-shadow: 
     inset 0 -4px 0 rgba(0,0,0,0.3),
     inset 0 4px 0 rgba(255,255,255,0.3),
-    0 12px 0 var(--comic-border-color), /* Deeper bottom shadow */
-    0 16px 20px rgba(0,0,0,0.4); /* Stronger drop shadow */
+    0 12px 0 var(--comic-border-color),
+    0 16px 20px rgba(0,0,0,0.4);
 }
 
-/* Specific colors for friend mode (red) and AI mode (blue) */
 .friend-mode {
   --button-dark-color: var(--comic-red-dark);
   --button-light-color: var(--comic-red-light);
 }
 
 .ai-mode {
-  --button-dark-color: var(--comic-orange-dark);
-  --button-light-color: var(--comic-orange-light);
+  --button-dark-color: var(--comic-blue-dark);
+  --button-light-color: var(--comic-blue-light);
 }
 
 .music-toggle {
-  position: absolute;
+  position: fixed;  /* Changed to fixed to ensure it stays in viewport */
   top: 20px;
   right: 20px;
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  border: 4px dashed #000;
-  background-color: var(--btn-bg-color);
+  border: 4px solid var(--comic-border-color);
   cursor: pointer;
   font-size: 24px;
   display: flex;
   z-index: 10;
   align-items: center;
   justify-content: center;
-  transition: all 0.1s ease;
+  transition: all 0.2s ease;
+
+  background-image: linear-gradient(to bottom, var(--comic-yellow-light), var(--comic-yellow-dark));
+  box-shadow: 
+    inset 0 -4px 0 rgba(0,0,0,0.3),
+    inset 0 4px 0 rgba(255,255,255,0.3),
+    0 5px 0 var(--comic-border-color),
+    0 8px 10px rgba(0,0,0,0.3);
+  
+  overflow: hidden;
 }
-.music-toggle.playing {
-  background-color: #f6f6f6;
-  transform: scale(1.03);
+
+.music-toggle::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(circle, rgba(0,0,0,0.2) 1px, transparent 1px);
+  background-size: 6px 6px; /* Smaller dots for the small button */
+  opacity: 0.5;
+  pointer-events: none;
+  mix-blend-mode: multiply;
 }
 
 .music-toggle:hover {
-  background-color: #fff9e6;
-  transform: scale(1.02);
+  transform: translateY(-2px);
+  box-shadow: 
+    inset 0 -3px 0 rgba(0,0,0,0.3),
+    inset 0 3px 0 rgba(255,255,255,0.3),
+    0 7px 0 var(--comic-border-color),
+    0 10px 15px rgba(0,0,0,0.4);
+}
+
+.music-toggle.playing {
+  /* "Pressed down" effect */
+  transform: translateY(2px);
+  box-shadow: 
+    inset 0 4px 0 rgba(0,0,0,0.3), /* Reverse inset shadows */
+    0 3px 0 var(--comic-border-color),
+    0 4px 6px rgba(0,0,0,0.4);
+  
+  /* Change color to green to indicate 'on' */
+  background-image: linear-gradient(to bottom, var(--comic-green-light), var(--comic-green-dark));
 }
 
 @keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
 }
 
 @media (max-width: 768px) {
   .menu-container {
-    flex-direction: column; /* Stack buttons vertically on smaller screens */
+    flex-direction: column;
     max-width: 250px;
   }
   .menu-button {
-    width: 100%; /* Make buttons full width */
+    width: 100%;
   }
   .music-toggle {
     width: 40px;
