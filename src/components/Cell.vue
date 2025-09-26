@@ -55,8 +55,8 @@ const cellClass = computed(() => {
 }
 
 .x-mark {
-  color: #facc15; /* yellow */
-  -webkit-text-stroke: 3px #000; /* black outline */
+  color: #facc15;
+  -webkit-text-stroke: 3px #000; 
   text-shadow: #000 2px 2px 0, #000 -2px -2px 0;
 }
 

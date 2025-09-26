@@ -84,10 +84,10 @@ const startGame = (withAI: boolean) => {
 
 .menu-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 16px;
   width: 100%;
-  max-width: 300px;
+  max-width: 600px;
   margin: 0 auto;
   justify-content: center;
   margin-bottom: 40px;

@@ -14,11 +14,8 @@ defineProps<Props>();
       <span class="label">PLAYER 1 (X)</span>
       <span class="count">{{ xWins }}</span>
     </div>
-
-    <div class="score draw-score">
-      <span class="label">DRAWS</span>
-      <span class="count">{{ draws }}</span>
-    </div>
+  
+    
 
     <div class="score o-score">
       <span class="label">PLAYER 2 (O)</span>
@@ -28,7 +25,6 @@ defineProps<Props>();
 </template>
 
 <style scoped>
-/* Define or import your comic book style variables here */
 :root {
   --comic-red-dark: #cc0000;
   --comic-red-light: #ff3333;
@@ -47,10 +43,9 @@ defineProps<Props>();
   align-items: center;
   gap: 1.5rem;
   margin: 20px auto;
-  flex-wrap: wrap; /* Allows panels to wrap on smaller screens */
+  flex-wrap: wrap;
 }
 
-/* Individual score panel styling */
 .score {
   font-family: 'Bangers', cursive;
   color: var(--comic-text-color);
@@ -61,7 +56,6 @@ defineProps<Props>();
   min-width: 140px;
   box-sizing: border-box;
 
-  /* Enhanced 3D raised effect */
   box-shadow: 
     inset 0 -6px 0 rgba(0, 0, 0, 0.3),
     inset 0 6px 0 rgba(255,255,255,0.3),
@@ -74,7 +68,6 @@ defineProps<Props>();
   flex-direction: column;
   align-items: center;
   
-  /* Add subtle hover effect */
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
@@ -88,7 +81,6 @@ defineProps<Props>();
     0 6px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Shared text style with comic outline */
 .label, .count {
   text-shadow:
     -2px -2px 0 var(--comic-text-shadow-color),
@@ -109,7 +101,6 @@ defineProps<Props>();
   line-height: 1.1;
 }
 
-/* Specific background colors for each panel */
 .x-score {
   background-image: linear-gradient(to bottom, var(--comic-blue-light), var(--comic-blue-dark));
 }

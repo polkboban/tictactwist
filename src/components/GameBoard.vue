@@ -157,7 +157,7 @@ onMounted(() => {
 
     <div class="bottom-controls">
       <button class="back-button" @click="emit('backToMenu')">
-        ← Home
+        Home
       </button>
       
       <GameControls
@@ -189,12 +189,11 @@ onMounted(() => {
   box-sizing: border-box; 
 }
 
-/* Renamed from .top-section and styles adjusted */
 .bottom-controls {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 2rem; /* Added margin to create space above the buttons */
+  margin-top: 2rem;
   gap: 20px;
   max-width: 1000px;
 }
@@ -264,11 +263,11 @@ onMounted(() => {
 }
 
 @media (max-width: 768px) {
-  /* Renamed from .top-section */
+  
   .bottom-controls {
     flex-direction: column;
     gap: 20px;
-    margin-bottom: 0; /* Removed bottom margin from old style */
+    margin-bottom: 0; 
   }
 
   .back-button {
@@ -284,9 +283,8 @@ onMounted(() => {
     padding: 12px;
   }
 
-  /* Renamed from .top-section */
   .bottom-controls {
-    margin-top: 1.5rem; /* Adjusted top margin for smaller screens */
+    margin-top: 1.5rem; 
   }
 
   .game-content {

@@ -26,7 +26,6 @@ defineProps<Props>();
 </template>
 
 <style scoped>
-/* Define or import your comic book style variables here */
 :root {
   --comic-yellow-dark: #e6a000;
   --comic-yellow-light: #ffcc00;
@@ -39,7 +38,7 @@ defineProps<Props>();
 
 .game-controls {
   display: flex;
-  gap: 18px; /* Increased gap for better spacing */
+  gap: 18px; 
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
@@ -47,7 +46,7 @@ defineProps<Props>();
 
 .control-btn {
   padding: 12px 20px;
-  font-family: 'Bangers', cursive; /* Comic font */
+  font-family: 'Bangers', cursive; 
   font-size: 1.2rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -60,7 +59,7 @@ defineProps<Props>();
   white-space: nowrap;
   flex: 1 1 auto;
   min-width: 150px;
-  margin-right: 0; /* Use gap for spacing instead */
+  margin-right: 0; 
 
   text-shadow:
     -2px -2px 0 var(--comic-text-shadow-color),
@@ -68,7 +67,6 @@ defineProps<Props>();
     -2px 2px 0 var(--comic-text-shadow-color),
     2px 2px 0 var(--comic-text-shadow-color);
 
-  /* Comic book style shadows and background */
   box-shadow:
     inset 0 -6px 0 rgba(0,0,0,0.3),
     inset 0 6px 0 rgba(255,255,255,0.3),
@@ -100,13 +98,12 @@ defineProps<Props>();
     0 16px 20px rgba(0,0,0,0.4);
 }
 
-/* Specific colors for restart (green) and reset (yellow) */
-.restart-btn { /* Renamed from .restart */
+.restart-btn { 
   --button-dark-color: var(--comic-green-dark);
   --button-light-color: var(--comic-green-light);
 }
 
-.reset-btn { /* Renamed from .reset */
+.reset-btn { 
   --button-dark-color: var(--comic-yellow-dark);
   --button-light-color: var(--comic-yellow-light);
 }
